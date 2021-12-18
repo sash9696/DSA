@@ -2,33 +2,33 @@
 
 using namespace std;
 
-void selectionSort(int array[], int size) {
+void selectionSort (int arr[], int size) {
 	for (int i=0; i<size-1; i++) {
-		int min=i;
 		for (int j=i+1; j<size; j++) {
-			if (array[j]<array[min]) {
-				min = j;
+			if (arr[j]<arr[i]) {
+				int temp = arr[j];
+				arr[j] = arr[i];
+				arr[i] = temp;
 			}
 		}
-		if (min !=i ) {
-			swap(array[i], array[min]);
-		}
 	}
-	for (int k=0; k<size; k++) {
-		cout<<array[k]<<" ";
+	for (int i=0; i<size; i++) {
+		cout<<arr[i]<<" ";
 	}
-	cout<<endl;
+	return;
 }
 
 int main() {
 	int n;
-	cout<<"Enter size: \n";
+	cout<<"Enter size of array: \n";
 	cin>>n;
 	int arr[n];
-	cout<<"Enter array elements: \n";
+	cout<<"Enter "<<n<<" array elements: \n";
 	for (int i=0; i<n; i++) {
 		cin>>arr[i];
 	}
+
 	selectionSort(arr, n);
+
 	return 0;
 }
